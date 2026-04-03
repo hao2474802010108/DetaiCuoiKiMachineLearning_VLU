@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MovieFlix</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>🎬 MovieFlix</header>
+
+<div class="container">
+    <input id="user_id" placeholder="Nhập User ID">
+    <button onclick="getRecommend()">Gợi ý</button>
+
+    <div id="movies" class="grid"></div>
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>
