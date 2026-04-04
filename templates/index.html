@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>MovieFlix</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Movie Recommender</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
-<header>🎬 MovieFlix</header>
+<header>
+    <h1>🎬 Movie Recommender</h1>
+</header>
 
-<div class="container">
-    <input id="user_id" placeholder="Nhập User ID">
-    <button onclick="getRecommend()">Gợi ý</button>
-
-    <div id="movies" class="grid"></div>
+<div class="search-box">
+    <input id="movieInput" placeholder="Nhập tên phim...">
+    <button onclick="search()">Search</button>
 </div>
 
-<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+<div id="movies" class="movie-grid"></div>
+
+<script src="/static/script.js"></script>
 
 </body>
 </html>
