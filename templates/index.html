@@ -11,10 +11,11 @@
 </header>
 
 <div class="search-box">
-    <input id="movieInput" placeholder="Nhập tên phim...">
+    <input id="movieInput" placeholder="Nhập tên phim..." onkeydown="if(event.key==='Enter') search()">
     <button onclick="search()">Search</button>
 </div>
 
+<div id="section-title" class="section-label"></div>
 <div id="movies" class="movie-grid"></div>
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>
