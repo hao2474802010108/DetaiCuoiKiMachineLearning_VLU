@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 from model import recommend
 import requests
+import os
 
 app = Flask(__name__)
 
@@ -84,6 +85,23 @@ def movie_api():
         })
 
     return jsonify({})
+user_history = {}
+
+@app.route("/save_history", methods=["POST"])
+def save_history():
+    movie = request.json["movie"]
+
+    if "user" not in user_history:
+        user_history["user"] = []
+
+    user_history["user"].append(movie)
+
+    return jsonify({"status": "ok"})
+@app.route("/get_history")
+def get_history():
+    history = user_history.get("user", [])
+    return jsonify(history)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000) 
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)

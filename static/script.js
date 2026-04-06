@@ -23,5 +23,31 @@ function search() {
 }
 
 function goDetail(title) {
+
+    fetch("/save_history", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ movie: title })
+    });
+
     window.location.href = `/movie?title=${encodeURIComponent(title)}`;
+}
+window.onload = function() {
+
+    fetch("/get_history")
+    .then(res => res.json())
+    .then(history => {
+
+        if (history.length > 0) {
+            let lastMovie = history[history.length - 1];
+
+            fetch("/recommend", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({ movie: lastMovie })
+            })
+            .then(res => res.json())
+            .then(showMovies);
+        }
+    });
 }
