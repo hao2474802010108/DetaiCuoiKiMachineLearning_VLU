@@ -3,14 +3,14 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: white;
- 
+
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
- 
+
     position: relative;
 }
- 
+
 /* ===== BACKGROUND BLUR ===== */
 body::before {
     content: "";
@@ -20,7 +20,7 @@ body::before {
     background: rgba(0,0,0,0.7);
     z-index: -1;
 }
- 
+
 /* ===== HEADER ===== */
 header {
     background: rgba(0,0,0,0.8);
@@ -30,13 +30,13 @@ header {
     font-size: 26px;
     font-weight: bold;
 }
- 
+
 /* ===== SEARCH ===== */
 .search-box {
     text-align: center;
     margin: 30px;
 }
- 
+
 .search-box input {
     padding: 12px;
     width: 320px;
@@ -44,7 +44,7 @@ header {
     border: none;
     font-size: 14px;
 }
- 
+
 .search-box button {
     padding: 12px 18px;
     background: red;
@@ -55,11 +55,11 @@ header {
     border-radius: 6px;
     font-size: 14px;
 }
- 
+
 .search-box button:hover {
     background: darkred;
 }
- 
+
 /* ===== MOVIE GRID ===== */
 .movie-grid {
     display: grid;
@@ -67,7 +67,7 @@ header {
     gap: 20px;
     padding: 20px;
 }
- 
+
 /* ===== MOVIE CARD ===== */
 .movie-card {
     background: #222;
@@ -76,23 +76,23 @@ header {
     transition: 0.3s;
     cursor: pointer;
 }
- 
+
 .movie-card:hover {
     transform: scale(1.08);
 }
- 
+
 .movie-card img {
     width: 100%;
     height: 240px;
     object-fit: cover;
 }
- 
+
 .movie-card h3 {
     padding: 10px;
     font-size: 14px;
     text-align: center;
 }
- 
+
 /* ===== DETAIL PAGE ===== */
 .detail-wrapper {
     display: flex;
@@ -101,7 +101,7 @@ header {
     gap: 50px;
     padding: 60px;
 }
- 
+
 /* POSTER */
 .poster-box img {
     width: 350px;
@@ -109,11 +109,11 @@ header {
     box-shadow: 0 0 25px rgba(0,0,0,0.8);
     transition: 0.3s;
 }
- 
+
 .poster-box img:hover {
     transform: scale(1.05);
 }
- 
+
 /* INFO BOX */
 .info-box {
     max-width: 500px;
@@ -122,26 +122,26 @@ header {
     border-radius: 12px;
     backdrop-filter: blur(5px);
 }
- 
+
 .info-box h1 {
     color: orange;
     margin-bottom: 20px;
 }
- 
+
 .info-box p {
     margin: 10px 0;
     line-height: 1.6;
 }
- 
+
 .info-box b {
     color: #ccc;
 }
- 
+
 /* ===== GENRE TAG ===== */
 .genre-list {
     margin-top: 10px;
 }
- 
+
 .genre-tag {
     display: inline-block;
     background: #e50914;
@@ -152,28 +152,28 @@ header {
     font-size: 13px;
     transition: 0.3s;
 }
- 
+
 .genre-tag:hover {
     background: #b20710;
     transform: scale(1.05);
 }
- 
+
 /* ===== OVERVIEW TEXT ===== */
 #overview {
     margin-top: 10px;
 }
- 
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .detail-wrapper {
         flex-direction: column;
         align-items: center;
     }
- 
+
     .poster-box img {
         width: 250px;
     }
- 
+
     .info-box {
         width: 90%;
     }
@@ -186,7 +186,7 @@ header {
     position: relative;
     padding: 20px;
 }
- 
+
 .home-btn {
     position: absolute;
     left: 20px;
@@ -199,27 +199,20 @@ header {
     transition: 0.3s;
     border: 1px solid rgba(255,255,255,0.2);
 }
- 
+
 .home-btn:hover {
     background: red;
     border-color: red;
 }
- 
+
 /* ===== SECTION LABEL ===== */
 .section-label {
-    text-align: center;
-    font-size: 22px;
+    font-size: 45px;
     font-weight: bold;
-    color: #fff;
-    margin: 20px 0 0 0;
+    color: #FFD700;
+    margin: 24px 0 0 24px;
     min-height: 32px;
-    letter-spacing: 1px;
-    text-shadow: 0 0 12px rgba(229, 9, 20, 0.8), 0 2px 8px rgba(0,0,0,0.8);
-    border-left: 4px solid #e50914;
+    letter-spacing: 2px;
+    text-shadow: 0 0 16px rgba(255, 215, 0, 0.7), 0 2px 8px rgba(0,0,0,0.9);
     display: inline-block;
-    padding: 6px 18px;
-    background: rgba(229, 9, 20, 0.1);
-    border-radius: 0 8px 8px 0;
-    width: fit-content;
-    margin-left: 24px;
 }

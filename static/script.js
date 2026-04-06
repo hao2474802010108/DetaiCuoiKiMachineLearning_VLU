@@ -25,7 +25,7 @@ function search() {
     if (!movie) return;
 
     const sectionTitle = document.getElementById("section-title");
-    sectionTitle.innerText = `Kết quả cho: "${movie}"`;
+    sectionTitle.innerText = "Gợi Ý Cho Bạn";
 
     fetch("/recommend", {
         method: "POST",
@@ -56,7 +56,7 @@ window.onload = function () {
 
     if (history.length > 0) {
         const lastMovie = history[history.length - 1];
-        sectionTitle.innerText = `Gợi ý dựa theo: "${lastMovie}"`;
+        sectionTitle.innerText = "Gợi Ý Cho Bạn";
 
         fetch("/recommend", {
             method: "POST",
@@ -67,7 +67,7 @@ window.onload = function () {
         .then(showMovies);
     } else {
         // Chưa có lịch sử → hiển thị phim mặc định
-        sectionTitle.innerText = "🔥 Phim nổi bật";
+        sectionTitle.innerText = "Gợi Ý Cho Bạn";
 
         fetch("/recommend", {
             method: "POST",
