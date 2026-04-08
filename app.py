@@ -2,10 +2,16 @@ from flask import Flask, request, jsonify, render_template
 from model import recommend
 import requests
 import os
+import random
+import pandas as pd
 
 app = Flask(__name__)
 
 TMDB_API_KEY = "bfb4fafd7292e270ea2978967fa8312a"
+
+# Load danh sách tên phim từ dataset
+_movies_df = pd.read_csv("data/tmdb_5000_movies.csv")
+ALL_MOVIE_TITLES = _movies_df["title"].dropna().tolist()
 
 # dịch tiếng Việt
 def translate_text(text):
@@ -49,6 +55,20 @@ def get_recommend():
 
     return jsonify(result)
 
+@app.route("/random_movies")
+def random_movies():
+    count = random.choice([15, 20])
+    chosen = random.sample(ALL_MOVIE_TITLES, count)
+
+    result = []
+    for title in chosen:
+        result.append({
+            "title": title,
+            "poster": get_poster(title)
+        })
+
+    return jsonify(result)
+
 @app.route("/movie")
 def movie_page():
     return render_template("detail.html")
@@ -85,6 +105,7 @@ def movie_api():
         })
 
     return jsonify({})
+
 user_history = {}
 
 @app.route("/save_history", methods=["POST"])
@@ -97,6 +118,7 @@ def save_history():
     user_history["user"].append(movie)
 
     return jsonify({"status": "ok"})
+
 @app.route("/get_history")
 def get_history():
     history = user_history.get("user", [])
